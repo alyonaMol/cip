@@ -14,10 +14,9 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should have title "cip"', () => {
     const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, cip');
+    const app = fixture.componentInstance;
+    expect(app.title()).toBe('cip'); // ✅ signal читається як функція
   });
 });

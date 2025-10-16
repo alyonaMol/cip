@@ -1,0 +1,6 @@
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20vh 0;
+}

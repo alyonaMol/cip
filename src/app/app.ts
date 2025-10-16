@@ -1,12 +1,15 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
+  standalone: true,
+  imports: [
+    RouterModule // ✅ додаємо RouterModule для router-outlet
+  ]
 })
 export class App {
-  protected readonly title = signal('cip');
+  title = signal('cip');
 }

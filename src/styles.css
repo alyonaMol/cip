@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+
+.p-inputtext,.p-password input
+{
+  width: 100% !important;
+  height: 50px !important; 
+  padding: 0.75rem 1rem !important;
+  border: 2px solid #ccc !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  color: #333 !important;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+ 
+
+/* При фокусі */
+.p-inputtext:focus,
+.p-password input:focus {
+  border-color: #007ad9 !important;
+  box-shadow: 0 0 0 0.15rem rgba(0, 122, 217, 0.25) !important;
+  outline: none;
+}
+
+/* 3.2. Вирівнювання плаваючого лейблу (Floating Label) */
+
+/* Застосовуємо єдиний стиль до обох типів лейблів, змушуючи їх бути над рамкою */
+
+
+/* ДОДАТКОВЕ ВИПРАВЛЕННЯ: Скидаємо стандартне позиціонування лейблу, коли поле ПУСТЕ (idle state) */
+.p-float-label > label {
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+    color: #6c757d; /* Стандартний сірий колір, коли неактивне */
+}
+
+
+/* 3.3. Виправлення для p-password */
+.p-float-label {
+    display: block; /* Забезпечуємо повну ширину */
+    width: 100%;
+}
+
+/* Вирівнюємо іконку перемикання маски */
+.p-password .p-inputwrapper .p-input-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    color: #666;
+}
+
+/* Стилі для p-button */
+.p-button {
+  width: 50%;
+  background-color: #007ad9 !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 1.05rem !important;
+  padding: 0.85rem !important;
+  border-radius: 8px !important;
+  transition: background-color 0.3s ease;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.p-button:hover:not(.p-disabled) {
+  background-color: #005fa3 !important;
+}
+
