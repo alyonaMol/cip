@@ -1,33 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FloatLabelModule } from 'primeng/floatlabel';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrimeModule } from '../../../shared/modules/prime.module';
 import { NotificationService } from '../../../shared/services/notification.service';
 import { UserService } from '../../../shared/services/user.service';
 import { AuthService } from '../auth.service';
-import { CommonModule, NgIf, AsyncPipe } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [PrimeModule, 
-            CommonModule,
-            ReactiveFormsModule,
-            NgIf,
-            AsyncPipe,
-            
-            ],
+  imports: [PrimeModule, CommonModule, ReactiveFormsModule, NgIf, AsyncPipe],
   standalone: true,
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
   returnUrl: string = '/';
-  error: string  | null = null;
+  error: string | null = null;
 
   private readonly loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   readonly loading$: Observable<boolean> = this.loading.asObservable();
@@ -53,7 +45,6 @@ export class LoginComponent implements OnInit {
   get f(): any {
     return this.loginForm.controls;
   }
-
 
   onSubmit(): void {
     this.submitted = true;

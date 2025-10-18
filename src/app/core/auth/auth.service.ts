@@ -20,17 +20,15 @@ export interface UserData {
 })
 export class AuthService {
   private readonly userData = 'system_data';
-  private apiUrl = `${API_URL}${API_ENDPOINTS.login}`; 
+  private apiUrl = `${API_URL}${API_ENDPOINTS.login}`;
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<UserData> {
-    const params = new HttpParams()
-      .set('login', username)
-      .set('pass', password);
+    const params = new HttpParams().set('login', username).set('pass', password);
 
     return this.http
-      .get<UserData>(this.apiUrl, { params }) 
+      .get<UserData>(this.apiUrl, { params })
       .pipe(tap((response) => this.storeToken(response)));
   }
 
@@ -55,6 +53,4 @@ export class AuthService {
   private storeToken(user: UserData): void {
     localStorage.setItem(this.userData, JSON.stringify(user));
   }
-  
 }
-

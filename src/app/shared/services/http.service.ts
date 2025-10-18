@@ -19,7 +19,9 @@ interface HttpOptions {
   headers?: HttpHeaders | { [header: string]: string | string[] };
   context?: HttpContext;
   observe?: 'body';
-  params?: HttpParams | { [param: string]: string | number | boolean | readonly (string | number | boolean)[] };
+  params?:
+    | HttpParams
+    | { [param: string]: string | number | boolean | readonly (string | number | boolean)[] };
   reportProgress?: boolean;
   responseType?: 'json';
   withCredentials?: boolean;
@@ -36,13 +38,21 @@ export class HttpService {
     );
   }
 
-  public post<T>(url: string, body: Record<string, any> = {}, options?: HttpOptions): Observable<T> {
+  public post<T>(
+    url: string,
+    body: Record<string, any> = {},
+    options?: HttpOptions
+  ): Observable<T> {
     return this.http.post<T>(url, body, options).pipe(
       map((data) => this.pipeCallback('POST', data)),
       catchError((error) => this.errorHandler('POST', error))
     );
   }
-  public publicPost<T>(url: string, body: Record<string, any> = {}, options?: HttpOptions): Observable<T> {
+  public publicPost<T>(
+    url: string,
+    body: Record<string, any> = {},
+    options?: HttpOptions
+  ): Observable<T> {
     return this.http.post<T>(url, body, options).pipe(
       map((data) => this.pipeCallback('POST', data)),
       catchError((error) => this.errorHandler('POST', error))
@@ -56,7 +66,11 @@ export class HttpService {
     );
   }
 
-  public patch<T>(url: string, body: Record<string, any> = {}, options?: HttpOptions): Observable<T> {
+  public patch<T>(
+    url: string,
+    body: Record<string, any> = {},
+    options?: HttpOptions
+  ): Observable<T> {
     return this.http.patch<T>(url, body, options).pipe(
       map((data) => this.pipeCallback('PATCH', data)),
       catchError((error) => this.errorHandler('PATCH', error))
@@ -71,7 +85,8 @@ export class HttpService {
 
   private pipeCallback<T>(method: HttpMethod, data: T): T {
     if (data && method !== 'GET') {
-      const successMessage = HttpMethodMessages[method]?.success || HttpMethodMessages.DEFAULT.success;
+      const successMessage =
+        HttpMethodMessages[method]?.success || HttpMethodMessages.DEFAULT.success;
       this.notification.showSuccess(successMessage);
     }
     return data;

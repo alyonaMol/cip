@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/services/client.service';
 //import { SourceDataService } from '../../shared/services/source-data.service';
@@ -16,9 +16,9 @@ export class ClientListComponent implements OnInit {
   @Input() fields: string[] = [];
 
   constructor(
-    public readonly clientService: ClientService,
-    //public readonly sourceDataService: SourceDataService
-  ) {}
+    public readonly clientService: ClientService
+  ) //public readonly sourceDataService: SourceDataService
+  {}
 
   ngOnInit() {
     this._fetchClients();

@@ -23,7 +23,7 @@ const userReducer = createReducer(
 );
 
 export function reducer(state: UserState | undefined, action: Action) {
-  return userReducer(state, action);
+  return userReducer(state, action);
 }
 
-export { initialState};
+export { initialState };

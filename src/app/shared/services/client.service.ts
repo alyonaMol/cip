@@ -22,9 +22,8 @@ export class ClientService {
 
   fetchClientsList(): void {
     this._loading.next(true);
-    this.getClients()
-      .pipe(finalize(() => this._loading.next(false)))
-      //.subscribe((clients) => this.clientSourceData.next(addNestedRelatives(clients)));
+    this.getClients().pipe(finalize(() => this._loading.next(false)));
+    //.subscribe((clients) => this.clientSourceData.next(addNestedRelatives(clients)));
   }
   updateClientSource(data: ClientView[]): void {
     this.clientSourceData.next(data);

@@ -1,12 +1,12 @@
 import {
-  HttpEvent,
-  HttpHandlerFn, 
-  HttpRequest,
   HttpErrorResponse,
+  HttpEvent,
+  HttpHandlerFn,
   HttpInterceptorFn,
+  HttpRequest,
 } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ export const authInterceptor: HttpInterceptorFn = (
 ): Observable<HttpEvent<unknown>> => {
   const authService = inject(AuthService);
   const router = inject(Router);
-  const token = authService.getToken(); 
+  const token = authService.getToken();
 
   // 1. Ігноруємо зовнішні API (наприклад, OpenAI)
   if (req.url.includes('api.openai.com')) {
@@ -24,10 +24,11 @@ export const authInterceptor: HttpInterceptorFn = (
   }
 
   // 2. Додавання токена: Перевіряємо токен перед клонуванням запиту.
-  if (token) { // ❗ ЦЯ ПЕРЕВІРКА УСУВАЄ ПОМИЛКУ string | null ❗
+  if (token) {
+    // ❗ ЦЯ ПЕРЕВІРКА УСУВАЄ ПОМИЛКУ string | null ❗
     req = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`, 
+        Authorization: `Bearer ${token}`,
       },
     });
   }

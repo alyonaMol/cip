@@ -6,9 +6,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
   standalone: true,
-  imports: [
-    RouterModule // ✅ додаємо RouterModule для router-outlet
-  ]
+  imports: [RouterModule],
 })
 export class App {
   title = signal('cip');

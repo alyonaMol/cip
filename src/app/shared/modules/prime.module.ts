@@ -14,7 +14,6 @@ import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
-
 @NgModule({
   declarations: [],
   // ... (повний список exports, який ти надав)
@@ -34,8 +33,6 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     MessageModule,
     ToastModule,
     ProgressSpinnerModule,
-
-
   ],
 })
 export class PrimeModule {}
