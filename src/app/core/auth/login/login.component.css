@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #f4f6f9; 
+  background: #f4f6f9;
   font-family: 'Inter', sans-serif;
   padding: 1rem;
 }
@@ -16,7 +16,6 @@
   max-width: 420px;
   padding: 2rem;
 }
-
 
 .header {
   text-align: center;
@@ -48,19 +47,14 @@
   text-align: left;
 }
 
-
 .card.flex.justify-content-center {
-    /* Цей блок відповідає вашому div, що містить p-floatlabel */
-    margin-bottom: 1rem;
+  /* Цей блок відповідає вашому div, що містить p-floatlabel */
+  margin-bottom: 1rem;
 }
-
-
-
 
 .form-group {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
-
 
 .invalid-feedback {
   color: #d9534f;
@@ -86,8 +80,8 @@
   text-decoration: underline;
 }
 
-/* ========================================================================= 
- * 5. АДАПТИВНІСТЬ 
+/* =========================================================================
+ * 5. АДАПТИВНІСТЬ
  * ========================================================================= */
 @media (max-width: 480px) {
   .content {
