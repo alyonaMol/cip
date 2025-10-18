@@ -1,8 +1,7 @@
-
-.p-inputtext,.p-password input
-{
+.p-inputtext,
+.p-password input {
   width: 100% !important;
-  height: 50px !important; 
+  height: 50px !important;
   padding: 0.75rem 1rem !important;
   border: 2px solid #ccc !important;
   border-radius: 8px !important;
@@ -11,7 +10,6 @@
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
 }
- 
 
 /* При фокусі */
 .p-inputtext:focus,
@@ -25,32 +23,30 @@
 
 /* Застосовуємо єдиний стиль до обох типів лейблів, змушуючи їх бути над рамкою */
 
-
 /* ДОДАТКОВЕ ВИПРАВЛЕННЯ: Скидаємо стандартне позиціонування лейблу, коли поле ПУСТЕ (idle state) */
 .p-float-label > label {
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    transition: all 0.2s ease-in-out;
-    color: #6c757d; /* Стандартний сірий колір, коли неактивне */
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-in-out;
+  color: #6c757d; /* Стандартний сірий колір, коли неактивне */
 }
-
 
 /* 3.3. Виправлення для p-password */
 .p-float-label {
-    display: block; /* Забезпечуємо повну ширину */
-    width: 100%;
+  display: block; /* Забезпечуємо повну ширину */
+  width: 100%;
 }
 
 /* Вирівнюємо іконку перемикання маски */
 .p-password .p-inputwrapper .p-input-icon {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 10;
-    color: #666;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  color: #666;
 }
 
 /* Стилі для p-button */
@@ -71,4 +67,3 @@
 .p-button:hover:not(.p-disabled) {
   background-color: #005fa3 !important;
 }
-
