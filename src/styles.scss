@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'primeicons/primeicons.css' as *;
+
+/* angular-cli file: src/styles.css */
+
+/* Importing Bootstrap SCSS file. */
+@use 'bootstrap/scss/bootstrap' as *;
+
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: #fafafa !important;
+}

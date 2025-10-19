@@ -1,15 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { PingService } from './shared/services/ping.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  styleUrls: ['./app.css'],
+  styleUrls: ['./app.scss'],
   standalone: true,
-  imports: [
-    RouterModule // ✅ додаємо RouterModule для router-outlet
-  ]
+  imports: [RouterModule],
 })
-export class App {
-  title = signal('cip');
+export class App implements OnInit {
+  constructor(private pingService: PingService) {}
+
+  ngOnInit(): void {
+    this.pingService.ping$().subscribe(console.log);
+  }
 }

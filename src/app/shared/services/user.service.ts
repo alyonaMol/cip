@@ -6,8 +6,6 @@ import { User } from '../../core/models/types';
 import { logoutUser, setUser } from '../state/user';
 import { HttpService } from './http.service';
 
-
-
 const EMPTY_USER: User = { id: null, token: null } as any;
 
 @Injectable({ providedIn: 'root' })
