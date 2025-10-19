@@ -6,6 +6,15 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script>
+      window.env = {
+        API_URL: 'http://localhost:3000',
+        GRAPHQL_URL: 'http://localhost:3000/graphql',
+        SWAGGER_URL: 'http://localhost:3000/docs',
+        BUILD_COMMIT: 'local-dev',
+        BUILD_TIME: new Date().toISOString(),
+      };
+    </script>
   </head>
   <body>
     <app-root></app-root>

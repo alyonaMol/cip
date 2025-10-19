@@ -4,15 +4,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrimeModule } from '../../../shared/modules/prime.module';
 import { NotificationService } from '../../../shared/services/notification.service';
-import { UserService } from '../../../shared/services/user.service';
 import { AuthService } from '../auth.service';
 import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
+import { FloatLabel } from 'primeng/floatlabel';
+import { Password } from 'primeng/password';
+import { Button } from 'primeng/button';
+import { InputText } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  imports: [PrimeModule, CommonModule, ReactiveFormsModule, NgIf, AsyncPipe],
+  styleUrls: ['./login.component.scss'],
+  imports: [
+    PrimeModule,
+    CommonModule,
+    ReactiveFormsModule,
+    NgIf,
+    AsyncPipe,
+    FloatLabel,
+    Password,
+    Button,
+    InputText,
+  ],
   standalone: true,
 })
 export class LoginComponent implements OnInit {
@@ -29,7 +42,6 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private notification: NotificationService,
-    public userService: UserService,
     private authService: AuthService
   ) {}
 
@@ -46,6 +58,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  enterSubmit(event: KeyboardEvent): void {
+    if (event.keyCode === 13) {
+      this.onSubmit();
+    }
+  }
   onSubmit(): void {
     this.submitted = true;
 
@@ -58,6 +75,13 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.f.username.value, this.f.password.value).subscribe(
       (userData) => {
+        // @ts-ignore
+        if (userData?.['error']) {
+          this.error = 'Invalid credentials';
+          this.loading.next(false);
+          return;
+        }
+
         this.router.navigate([this.returnUrl]);
         this.loading.next(false);
       },

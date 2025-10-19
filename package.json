@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate": "graphql-codegen --config codegen.ts",
+    "generate:watch": "graphql-codegen --watch"
   },
   "prettier": {
     "printWidth": 100,
@@ -33,6 +35,8 @@
     "@ngrx/entity": "^20.0.1",
     "@ngrx/store": "^20.0.1",
     "@primeuix/themes": "^1.2.5",
+    "apollo-angular": "^12.0.0",
+    "bootstrap": "^5.2.3",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
     "primeng": "^20.2.0",
@@ -44,14 +48,19 @@
     "@angular/build": "^20.3.3",
     "@angular/cli": "^20.3.3",
     "@angular/compiler-cli": "^20.3.0",
+    "@graphql-codegen/cli": "^6.0.0",
+    "@graphql-codegen/typescript": "^5.0.2",
+    "@graphql-codegen/typescript-apollo-angular": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^5.0.2",
     "@types/jasmine": "~5.1.0",
+    "graphql-tag": "^2.12.6",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.2",
-    "prettier": "~2.6.2"
+    "prettier": "~2.6.2",
+    "typescript": "~5.9.2"
   }
 }

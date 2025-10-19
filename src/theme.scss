@@ -1,0 +1,125 @@
+//@use '@angular/material' as mat;
+//
+//// Plus imports for other components in your app.
+//
+//// Include the common styles for Angular Material. We include this here so that you only
+//// have to load a single css file for Angular Material in your app.
+//// Be sure that you only ever include this mixin once!
+//@include mat.core();
+//
+//// Define the palettes for your theme using the Material Design palettes available in palette.scss
+//// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+//// hue. Available color palettes: https://material.io/design/color/ teal
+////$md-primary: (
+////  50 : #e1eded,
+////  100 : #b5d1d3,
+////  200 : #83b3b6,
+////  300 : #519598,
+////  400 : #2c7e82,
+////  500 : #07676c,
+////  600 : #065f64,
+////  700 : #055459,
+////  800 : #044a4f,
+////  900 : #02393d,
+////  A100 : #73f3ff,
+////  A200 : #40eeff,
+////  A400 : #0de9ff,
+////  A700 : #00ddf2,
+////  contrast: (
+////    50 : #000000,
+////    100 : #000000,
+////    200 : #000000,
+////    300 : #000000,
+////    400 : #ffffff,
+////    500 : #ffffff,
+////    600 : #ffffff,
+////    700 : #ffffff,
+////    800 : #ffffff,
+////    900 : #ffffff,
+////    A100 : #000000,
+////    A200 : #000000,
+////    A400 : #000000,
+////    A700 : #000000,
+////  )
+////);
+//$md-primary: (
+//        50 : #e1e2ea,
+//        100 : #b3b7cb,
+//        200 : #8187a9,
+//        300 : #4f5686,
+//        400 : #29326c,
+//        500 : #030e52,
+//        600 : #030c4b,
+//        700 : #020a41,
+//        800 : #020838,
+//        900 : #010428,
+//        A100 : #6363ff,
+//        A200 : #3030ff,
+//        A400 : #0000fc,
+//        A700 : #0000e2,
+//        contrast: (
+//                50 : #000000,
+//                100 : #000000,
+//                200 : #000000,
+//                300 : #ffffff,
+//                400 : #ffffff,
+//                500 : #ffffff,
+//                600 : #ffffff,
+//                700 : #ffffff,
+//                800 : #ffffff,
+//                900 : #ffffff,
+//                A100 : #ffffff,
+//                A200 : #ffffff,
+//                A400 : #ffffff,
+//                A700 : #ffffff,
+//        )
+//);
+//
+//$md-accent: (
+//        50 : #f9f5ee,
+//        100 : #f1e6d4,
+//        200 : #e8d5b8,
+//        300 : #dfc49c,
+//        400 : #d8b886,
+//        500 : #d1ab71,
+//        600 : #cca469,
+//        700 : #c69a5e,
+//        800 : #c09154,
+//        900 : #b58042,
+//        A100 : #ffffff,
+//        A200 : #ffebd5,
+//        A400 : #ffd3a2,
+//        A700 : #ffc789,
+//        contrast: (
+//                50 : #000000,
+//                100 : #000000,
+//                200 : #000000,
+//                300 : #000000,
+//                400 : #000000,
+//                500 : #000000,
+//                600 : #000000,
+//                700 : #000000,
+//                800 : #000000,
+//                900 : #000000,
+//                A100 : #000000,
+//                A200 : #000000,
+//                A400 : #000000,
+//                A700 : #000000,
+//        )
+//);
+//
+//$md-primary: mat.define-palette($md-primary, 500);
+//$md-accent:  mat.define-palette($md-accent, 500, 900, A100);
+//$md-warn:    mat.define-palette(mat.$orange-palette);
+////$md-theme: mat.define-palette($md-primary, $md-accent, $app-warn);
+//
+//$md-theme: mat.define-light-theme((
+//        color: (
+//                primary: $md-primary,
+//                accent: $md-accent,
+//        ),
+//        typography: mat.define-typography-config(),
+//        density: 0,
+//));
+//
+//@include mat.all-component-themes($md-theme);

@@ -13,7 +13,7 @@ export class NotificationService {
       severity: 'warn',
       summary: 'Warning',
       detail: detail,
-      life: 3000, // Зникне через 3 секунди
+      life: 3000,
     });
   }
 
@@ -21,13 +21,10 @@ export class NotificationService {
     let errorMessage = 'An unknown error occurred.';
 
     if (error instanceof HttpErrorResponse) {
-      // Обробка HTTP-помилок
       errorMessage = error.error?.message || error.message || `HTTP Error: ${error.status}`;
     } else if (typeof error === 'string') {
-      // Якщо помилка прийшла як рядок
       errorMessage = error;
     } else if (error && error.message) {
-      // Загальна обробка помилок JS
       errorMessage = error.message;
     }
 
@@ -35,17 +32,12 @@ export class NotificationService {
       severity: 'error',
       summary: 'Error',
       detail: errorMessage,
-      life: 5000, // Залишиться на екрані довше
+      life: 5000,
     });
 
-    // Додатково можна логувати для налагодження
     console.error('Notification Service Caught Error:', error);
   }
 
-  /**
-   * Відображає повідомлення про успіх (Success).
-   * @param detail Текст успіху.
-   */
   showSuccess(detail: string): void {
     this.messageService.add({
       severity: 'success',
