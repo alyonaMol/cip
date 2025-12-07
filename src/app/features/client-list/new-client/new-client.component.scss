@@ -1,0 +1,54 @@
+@use 'styles/colors' as *;
+
+:host {
+}
+
+.container {
+  margin: 0 auto;
+}
+
+main {
+  padding-left: 20px;
+  margin-left: 12px;
+}
+
+section {
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 110px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: $color-chili;
+}
+
+.action-buttons {
+  vertical-align: bottom;
+  padding-left: 12px;
+
+  :first-child {
+    margin-right: 10px;
+  }
+}
+
+.after-create {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  bottom: -24px;
+  right: -24px;
+  z-index: 5;
+  background-color: #ffffff;
+
+  div {
+    i.created {
+      font-size: 100px;
+    }
+  }
+}

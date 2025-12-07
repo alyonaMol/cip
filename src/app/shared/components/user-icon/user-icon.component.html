@@ -1,0 +1,22 @@
+<div class="user">
+  <ng-content></ng-content>
+  <svg class="sign" viewBox="0 0 25 25">
+    <text
+      dominant-baseline="middle"
+      dy="1"
+      fill="#fff"
+      font-size="11"
+      text-anchor="middle"
+      x="50%"
+      y="50%">
+      {{ initials}}
+    </text>
+  </svg>
+  <img
+    (error)="hideImage = true"
+    (load)="hideImage = false"
+    *ngIf="userData?.photo && !hideImage"
+    alt="avatar"
+    class="img"
+    [src]="userData?.photo" />
+</div>

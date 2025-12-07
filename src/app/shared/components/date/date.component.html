@@ -1,0 +1,16 @@
+<div class="date">
+<span class="date-display digital-font">
+    {{ date$ | async | date: 'dd.MM.yyyy HH:mm' }}
+  </span>
+ <p-button
+    (click)="op.toggle($event)"
+    icon="pi pi-calendar"
+    styleClass="p-button-rounded p-button-text calendar-toggle-button p-button-plain">
+  </p-button>
+</div>
+
+<p-popover #op >
+  <div class="calendar-container">
+    <p-datePicker [inline]="true" class="max-w-full"></p-datePicker>
+  </div>
+</p-popover>

@@ -1,0 +1,13 @@
+.date {
+  color: #212529;
+  background-color: #3fdfbc;
+  padding-right: 25px;
+  border-radius: 50px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+
+  &:focus {
+    outline: none;
+  }
+}

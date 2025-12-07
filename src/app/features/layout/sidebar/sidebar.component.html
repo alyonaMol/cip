@@ -1,0 +1,5 @@
+<ng-container *ngIf="clientService.clientSourceData$ | async">
+  <p-card>
+    <p-menu [model]="items"></p-menu>
+  </p-card>
+</ng-container>

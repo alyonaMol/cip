@@ -1,0 +1,29 @@
+<ng-container *ngIf="false">
+  <p-progressBar [style]="{ height: '6px' }" mode="indeterminate"></p-progressBar>
+</ng-container>
+
+<div class="header" style="min-height: 90px">
+  <div class="header-logo">
+    <a class="link" routerLink="/main">
+        <span class="text-2xl font-bold text-gray-800">CIP</span>
+    </a>
+  </div>
+  <span (click)="menu.emit(null)" class="layout-menu-button">
+    <i class="pi pi-bars"></i>
+  </span>
+  <span class="spacer"></span>
+  
+  <!--*ngIf="!(sourceService.loading$ | async)"-->
+  <div  class="header-right">
+    <div class="header-item header-date mobile-hide">
+      <app-date></app-date>
+    </div>
+  <!--div class="header-item header-help">
+      <app-help-menu [user]="userService.user$ | async"></app-help-menu>
+    </div-->
+    <div class="header-item header-user-menu">
+      <app-user-menu [user]="userService.user$ | async"></app-user-menu>
+    </div>
+  </div>
+</div>
+<p-toast key="toast" position="top-center"></p-toast>

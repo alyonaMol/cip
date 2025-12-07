@@ -1,1 +1,3 @@
-<cip-status-badge></cip-status-badge>
+<div>
+  <app-client-list *ngIf="(userService.user$ | async)?.id"></app-client-list>
+</div>

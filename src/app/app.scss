@@ -1,0 +1,187 @@
+app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#sidenav {
+  min-height: 100vh;
+  overflow: hidden;
+  transition: all 0.3s;
+  padding-right: 0;
+  padding-top: 3rem;
+
+  app-sidebar {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding: 3rem 3rem 3rem 0;
+  margin: 0 auto;
+  margin-left: 22rem;
+  transition: all 0.3s;
+}
+
+.main-container:first-child {
+  margin-left: 0;
+  margin-top: 15vh;
+  padding: 0;
+}
+
+.sidebar-container {
+  position: fixed;
+  width: 20rem;
+  z-index: 999;
+  overflow-y: auto;
+  -webkit-user-select: none;
+  user-select: none;
+  top: 6.5rem;
+  left: 2rem;
+  padding: 0.5rem 1.5rem;
+}
+
+#sidenav.collapsed {
+  padding: 0;
+  width: 0px;
+  padding-top: 3rem;
+  left: -10rem;
+}
+
+#sidenav.collapsed + .main-container {
+  margin-left: 3rem;
+}
+
+.section-container {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  border-color: rgb(222 226 230);
+  border-radius: 6px;
+  overflow: auto;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 20px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+#changeAvatar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: opacity 0.2s ease-in-out;
+  height: 100%;
+  padding-top: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: -113px;
+  left: 0;
+  right: 0;
+  background-color: rgba(32, 33, 36, 0.6);
+  color: white;
+  border: none;
+  opacity: 1;
+}
+
+.dev-info {
+  color: #00000060;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.dev-empty-value {
+  color: #00000060;
+  width: auto;
+  height: 41px;
+}
+
+.required {
+  color: red;
+}
+
+// Ng-prime
+
+.long-input {
+  width: 100%;
+}
+
+// Bootstrap
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button.btn {
+    margin-left: 5px;
+  }
+}
+
+.click-away {
+  display: none;
+}
+
+// ----- Mobile styles -----
+
+@media (max-width: 767px) {
+  #sidenav {
+    position: fixed;
+    width: 50%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: 100;
+
+    .p-menu .p-menuitem-link {
+      padding: 20px 10px;
+    }
+
+    ul.p-menu-list {
+      padding-left: 5px;
+    }
+  }
+
+  .click-away {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: 50%;
+    height: 100vh;
+  }
+
+  #sidenav.collapsed {
+    width: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .main-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .app-wrapper {
+    margin: 0;
+  }
+}

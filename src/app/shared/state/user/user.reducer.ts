@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { User } from '../../../core/models/types';
+import { User } from '../../../features/main/models/types';
 import { logoutUser, setUser } from './user.actions';
 
 // Define the shape of the state

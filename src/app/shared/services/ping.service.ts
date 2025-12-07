@@ -8,7 +8,7 @@ import { PING_QUERY } from '../../core/graphql/ping.query';
 export class PingService {
   constructor(private apollo: Apollo) {}
 
-  // Вариант 1: одноразовый запрос
+ 
   ping$() {
     return this.apollo
       .query<{ ping?: string }>({

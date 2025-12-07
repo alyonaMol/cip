@@ -1,13 +1,14 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserService } from '../../shared/services/user.service';
-import { StatusBadgeComponent } from '../../shared/components/status-badge.component';
+import { ClientListComponent } from './../client-list/client-list.component';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
   standalone: true,
-  imports: [StatusBadgeComponent],
+  imports: [NgIf, ClientListComponent, AsyncPipe],
 })
 export class MainComponent {
   constructor(public userService: UserService) {}
