@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NgClass, NgIf } from '@angular/common';
+import { Component} from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { PingService } from './shared/services/ping.service';
+import { HeaderComponent } from './features/layout/header/header.component';
+import { AuthService } from './core/auth/auth.service';
+import { SidebarComponent } from './features/layout/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],
   standalone: true,
-  imports: [RouterModule],
+  imports: [NgClass, NgIf, RouterOutlet, SidebarComponent, HeaderComponent],
 })
-export class App implements OnInit {
-  constructor(private pingService: PingService) {}
+export class App  {
+  public isSidebarOpen = false;
+  constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {
-    this.pingService.ping$().subscribe(console.log);
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }

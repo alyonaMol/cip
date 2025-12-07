@@ -1,0 +1,155 @@
+<div class="container">
+  <form [formGroup]="newClientForm">
+    <div class="row">
+      <div class="row col-lg-6 col-12">
+        <div class="col-12">
+          <label for="name">First name <span class="required">*</span></label>
+        </div>
+        <div class="col-12">
+          <input
+            [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+            formControlName="name"
+            id="name"
+            pInputText
+            required />
+        </div>
+        <div *ngIf="f.name.invalid" class="invalid-feedback">
+          {{ getErrorMessage('Name', f.name) }}
+        </div>
+      </div>
+      <div class="row col-lg-6 col-12">
+        <div class="col-12">
+          <label for="surname">Last name <span class="required">*</span></label>
+        </div>
+        <div class="col-12">
+          <input
+            [ngClass]="{ 'is-invalid': submitted && f.surname.errors }"
+            formControlName="surname"
+            id="surname"
+            pInputText
+            required />
+        </div>
+        <div *ngIf="f.surname.invalid" class="invalid-feedback">
+          {{ getErrorMessage('Surname', f.surname) }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row col-lg-6 col-12">
+        <div class="col-12">
+          <label for="dob">Date of birth</label>
+        </div>
+        <div class="col-12">
+          <p-calendar
+            [class.custom-max-width]="!isMobile"
+            [showButtonBar]="true"
+            [showIcon]="true"
+            [touchUI]="true"
+            formControlName="dob"
+            id="dob"></p-calendar>
+        </div>
+      </div>
+      <div class="row col-lg-6 col-12">
+        <div class="col-12">
+          <label for="gender">Gender</label>
+        </div>
+        <div class="col-12">
+          <p-dropdown
+            [options]="genderArray"
+            formControlName="gender"
+            id="gender"
+            optionLabel="label"
+            optionValue="value"></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row col-lg-6 col-12">
+        <div class="col-12">
+          <label for="email">E-mail</label>
+        </div>
+        <div class="col-12">
+          <input
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            formControlName="email"
+            id="email"
+            pInputText />
+        </div>
+      </div>
+      <div class="row col-lg-6 col-12">
+        <div class="col-12">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="col-12">
+          <input formControlName="phone" id="phone" pInputText />
+        </div>
+      </div>
+    </div>
+    <p *ngIf="errorValidation" class="error-message">{{ errorValidation }}</p>
+    <p *ngIf="errorHttp" class="error-message">{{ errorHttp }}</p>
+    <p *ngIf="message">{{ message }}</p>
+    <div class="action-buttons">
+      <p-button
+        (click)="onSubmit()"
+        [disabled]="loading"
+        label="Create"
+        styleClass="p-button-success">
+        <i *ngIf="!loading" class="pi pi-save"></i>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      </p-button>
+      <p-button
+        (click)="closeOverlay(null)"
+        icon="pi pi-times"
+        label="Cancel"
+        styleClass="p-button-outlined p-button-secondary">
+      </p-button>
+    </div>
+  </form>
+
+  <div *ngIf="submitted" class="after-create">
+    <div><i class="pi pi-check-circle text-success created"></i></div>
+    <p>Client was created. Would you like to create another client?</p>
+    <div>
+      <p-button
+        (click)="closeAfterSubmitModal()"
+        class="me-1"
+        icon="pi pi-plus-circle"
+        label="Create another"
+        styleClass="p-button-success">
+      </p-button>
+      <p-button
+        (click)="goToClient($event, newClient.id)"
+        class="me-1"
+        icon="pi pi-pencil"
+        label="Go to client page">
+      </p-button>
+      <p-button
+        (click)="closeOverlay(newClient)"
+        icon="pi pi-times"
+        label="Close"
+        styleClass="p-button-outlined">
+      </p-button>
+    </div>
+  </div>
+</div>
+
+<p-confirmDialog #cd>
+  <ng-template pTemplate="header">
+    <h3>User already exist</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      (click)="cd.reject()"
+      icon="pi pi-user"
+      label="Go to existing profile"
+      pButton
+      type="button"></button>
+    <button
+      (click)="cd.accept()"
+      class="p-button-success"
+      icon="pi pi-plus-circle"
+      label="Create new client"
+      pButton
+      type="button"></button>
+  </ng-template>
+</p-confirmDialog>

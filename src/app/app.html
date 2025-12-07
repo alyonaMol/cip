@@ -1,3 +1,19 @@
-<div class="app-container">
-  <router-outlet></router-outlet>
+<div>
+  <app-header (menu)="toggleSidebar()" *ngIf="authService.getUserId()"></app-header>
+  <div class="app-container">
+    <div
+      *ngIf="authService.getUserId()"
+      [ngClass]="{ collapsed: !isSidebarOpen }"
+      class="sidebar-container"
+      id="sidenav">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="main-container">
+      <router-outlet></router-outlet>
+    </div>
+    <div
+      (click)="isSidebarOpen = !isSidebarOpen"
+      *ngIf="isSidebarOpen"
+      class="click-away desctop-hide"></div>
+  </div>
 </div>

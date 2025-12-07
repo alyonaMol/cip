@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { API_ENDPOINTS, API_URL } from '../../core/config/constants';
-import { User } from '../../core/models/types';
+import { User } from '../../features/main/models/types';
 import { logoutUser, setUser } from '../state/user';
 import { HttpService } from './http.service';
 
