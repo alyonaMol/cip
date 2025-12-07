@@ -3,8 +3,8 @@ import { AuthService } from '../../../core/auth/auth.service';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DateComponent } from '../../../shared/components/date/date.component';
-/*import { HelpMenuComponent } from '../../../shared/components/help-menu/help-menu.component';
-import { UserMenuComponent } from '../../../shared/components/user-menu/user-menu.component';*/
+//import { HelpMenuComponent } from '../../../shared/components/help-menu/help-menu.component';
+import { UserMenuComponent } from '../../../shared/components/user-menu/user-menu.component';
 import { PrimeModule } from '../../../shared/modules/prime.module';
 import { SourceDataService } from '../../../shared/services/source-data.service';
 import { UserService } from '../../../shared/services/user.service';
@@ -13,7 +13,7 @@ import { UserService } from '../../../shared/services/user.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [PrimeModule, RouterLink, DateComponent],
+  imports: [PrimeModule, RouterLink, DateComponent, UserMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
